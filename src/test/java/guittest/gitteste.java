@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 public class gitteste {
 
 	@Test
-	public void  browser() throws IOException {
+	public void  browser() throws IOException, InterruptedException {
 		WebDriver wd= new ChromeDriver();
 		
 		wd.manage().window().maximize();
@@ -24,7 +24,10 @@ public class gitteste {
 		wd.findElement(By.name("q")).sendKeys(Keys.ENTER);
 		
 		File src=	((TakesScreenshot)wd).getScreenshotAs(OutputType.FILE);
-		FileHandler.copy(src, new File ("C:\\Users\\pcx\\API\\guit\\src\\main\\java\\chrome.png"));
+		FileHandler.copy(src, new File ("C:\\Users\\pcx\\API\\guit\\ssstore\\chrome.png"));
+		
+		
+		
 		
 	}
 }

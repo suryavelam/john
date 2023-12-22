@@ -3,6 +3,95 @@
   <groupId>com.vcentry</groupId>
   <artifactId>guit</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     <suiteXmlFile>bing.xml</suiteXmlFile>
+ </properties>
+ 
+ <build>
+	 <plugins>
+		    <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+      <version>2.18.1</version>
+    <configuration>
+        <forkMode>always</forkMode>
+        <systemPropertyVariables>
+            <reporter.debug>false</reporter.debug>                    
+        </systemPropertyVariables>
+        <suiteXmlFiles>
+            <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+           
+        </suiteXmlFiles>
+    </configuration>
+           
+</plugin>
+  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <version>2.3</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+            <configuration>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <manifestEntries>
+                    <Main-Class>org.sonatype.haven.ExodusCli</Main-Class>
+                    <Build-Number>123</Build-Number>
+                  </manifestEntries>
+                </transformer>
+              </transformers>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+        <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-dependency-plugin</artifactId>
+    <executions>
+        <execution>
+            <id>copy-dependencies</id>
+            <phase>prepare-package</phase>
+            <goals>
+                <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+                <outputDirectory>${project.build.directory}/outjar</outputDirectory>
+                <overWriteReleases>false</overWriteReleases>
+                <overWriteSnapshots>false</overWriteSnapshots>
+                <overWriteIfNewer>true</overWriteIfNewer>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-jar-plugin</artifactId>
+    <version>3.0.2</version>
+    <configuration>
+        <archive>
+            <manifest>
+                <addClasspath>true</addClasspath>
+                <classpathPrefix>outjar/</classpathPrefix>
+                <mainClass>theMainClass</mainClass>
+            </manifest>
+        </archive>
+    </configuration>
+</plugin>
+<plugin>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.8.1</version>
+    <configuration>
+        <source />
+        <target />
+    </configuration>
+</plugin>
+	 </plugins>
+ </build>
   <dependencies>
 	  <dependency>
     <groupId>org.seleniumhq.selenium</groupId>
@@ -13,8 +102,9 @@
 <dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
-    <version>7.8.0</version>
+    <version>6.9.10</version>
 </dependency>
+
 
 	  
   </dependencies>

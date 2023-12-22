@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-29T11:59:32 IST" name="Default suite" finished-at="2023-10-29T11:59:38 IST" duration-ms="5809">
+  <suite started-at="2023-12-22T17:59:13Z" name="Suite" finished-at="2023-12-22T17:59:33Z" duration-ms="20128">
     <groups>
     </groups>
-    <test started-at="2023-10-29T11:59:32 IST" name="Default test" finished-at="2023-10-29T11:59:38 IST" duration-ms="5809">
-      <class name="guittest.gitteste">
-        <test-method signature="browser()[pri:0, instance:guittest.gitteste@783a467b]" started-at="2023-10-29T11:59:32 IST" name="browser" finished-at="2023-10-29T11:59:38 IST" duration-ms="5734" status="PASS">
+    <test started-at="2023-12-22T17:59:13Z" name="Test" finished-at="2023-12-22T17:59:33Z" duration-ms="20128">
+      <class name="guittest2.Bingtest">
+        <test-method signature="browser()[pri:0, instance:guittest2.Bingtest@481ba2cf]" started-at="2023-12-22T23:29:13Z" name="browser" finished-at="2023-12-22T23:29:33Z" duration-ms="20117" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browser -->
-      </class> <!-- guittest.gitteste -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- guittest2.Bingtest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>
